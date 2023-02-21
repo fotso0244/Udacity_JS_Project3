@@ -1,0 +1,11 @@
+div {
+    text-align: center;
+}
+label {
+    font-weight: bold;
+}
+#success {
+    color: blue;
+    font-size: x-large;
+    font-weight: bold;
+}

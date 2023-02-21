@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ProductAdd } from 'src/app/models/ProductAdd';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shopping-cart.component.css']
 })
 export class ShoppingCartComponent implements OnInit {
+  @Input() product;
+  @Output() UpdateQty: EventEmitter<[ProductAdd, string]> = new EventEmitter;
 
   constructor() { }
 
   ngOnInit(): void {
+    
+  }
+  updateTotal(arr: [ProductAdd, string]) {
+    this.UpdateQty.emit(arr)
   }
 
 }

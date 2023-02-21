@@ -22,4 +22,9 @@ img {
 
 .back-link {
   margin-top: 8px;
+  color: blue;
+  text-decoration: none;
+}
+button {
+  background-color: blue;
 }

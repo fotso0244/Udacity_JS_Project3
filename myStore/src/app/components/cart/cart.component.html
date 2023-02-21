@@ -1,1 +1,13 @@
-<p>cart works!</p>
+<div class="cart-item">
+    <div class="cart-container" fxLayout="column">
+        <app-shopping-cart *ngFor="let product of prodListAdded" [product]="product" (UpdateQty)="UpdateTotal($event)"></app-shopping-cart>
+        <p class="total" *ngIf="!submit">Total: ${{ total }}</p>
+    </div>
+    <div class="cart-item-details">
+        <app-form  *ngIf="!submit" (validate)="submitForm($event)"></app-form>
+    </div>
+</div>
+
+<app-checkout-form [fullname]="fullname" [totalCart]="totalCart" [submit]="submit"></app-checkout-form>
+
+

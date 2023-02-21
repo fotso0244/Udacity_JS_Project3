@@ -1,1 +1,12 @@
-<p>product-detail works!</p>
+<div class="detail-container" *ngIf="product">
+    <img src="{{ product.url }}" />
+    <div class="detail-item">
+        <p fxLayoutAlign="center">{{ product.name }}</p>
+        <p fxLayoutAlign="center">${{ product.price }}</p>
+        <p fxLayoutAlign="center">{{ product.description }}</p>
+        <input type="number" class="select-input" #qty/><br/>
+        <button (click)="addToCart([product, qty.value])">Add to cart</button><br/>
+        <br/>
+        <a class="back-link" routerLink="/">Back to product list</a>
+    </div>    
+</div>

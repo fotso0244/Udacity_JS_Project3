@@ -1,1 +1,7 @@
-<p>checkout-form works!</p>
+<div *ngIf="submit">
+    <p id="success">Success</p><br>
+    <p>Thank you, <label>{{ fullname }}</label> !</p><br>
+    <p>your <label>${{ totalCart }}</label> order is confirmed</p><br>
+    <p>Please allow 1-3 business day(s) for shipping</p>
+
+</div>

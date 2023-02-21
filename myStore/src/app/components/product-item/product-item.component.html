@@ -1,5 +1,9 @@
-<div>
-    <img src="product.url" alt="product.description"/>
-    <p>{{ product.name }}</p>
-    <p>{{ product.price }}</p>
+<div class="product-container">
+    <a routerLink="/products/{{ product.name }}" (click)="hide()">
+        <img src="{{ product.url }}" alt="{{ product.description }}"  class="product-image"/>
+    </a>
+    <p fxLayoutAlign="center">{{ product.name }}</p>
+    <p fxLayoutAlign="center">${{ product.price }}</p>
+    <input type="number" class="select-input" #qty/>
+    <button (click)="addToCart([product, qty.value])">Add to cart</button>
 </div>

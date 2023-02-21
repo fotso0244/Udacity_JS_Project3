@@ -11,6 +11,10 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { CheckoutFormComponent } from './components/checkout-form/checkout-form.component';
 import { OrderConfirmationComponent } from './components/order-confirmation/order-confirmation.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ProductDetailMasterComponent } from './components/product-detail-master/product-detail-master.component';
+import { FormsModule } from '@angular/forms';
+import { FormComponent } from './components/form/form.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +25,17 @@ import { ProductItemComponent } from './components/product-item/product-item.com
     ShoppingCartComponent,
     CheckoutFormComponent,
     OrderConfirmationComponent,
-    ProductItemComponent
+    ProductItemComponent,
+    HeaderComponent,
+    ProductDetailMasterComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
