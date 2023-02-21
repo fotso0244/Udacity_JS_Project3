@@ -1,14 +1,18 @@
 <div>
     <form #form="ngForm" (ngSubmit)="onSubmit()">
       <label>Full name</label><br><br>
-      <input type="text" name="fullname" [(ngModel)]="fullname" required minlength="3" placeholder="(minimum 3 characters)"/><br>
-        <br>
-      <label>Address</label><br><br>
-      <input type="text" name="address" [(ngModel)]="address" required minlength="6" placeholder="(minimum 6 characters)"/>
-      <br><br>
-      <label>Credit cart number</label><br><br>
-      <input type="text" [(ngModel)]="creditCartNumber" required minlength="16" maxlength="16" placeholder="(16-digit number)">
+      <input type="text" name="fullname" [(ngModel)]="fullname" (ngModelChange)="validateName()" required minlength="3" placeholder="(minimum 3 characters)"/><br>
+       <label *ngIf="warning1" class="warning">Invalid full name</label><br>
       <br>
+      <label>Address</label><br><br>
+      <input type="text" name="address" [(ngModel)]="address" (ngModelChange)="validateAddress()" required minlength="6" placeholder="(minimum 6 characters)"/>
+      <br>
+      <label *ngIf="warning2" class="warning">Invalid Address</label><br>
+      <br>
+      <label>Credit cart number</label><br><br>
+      <input type="text" [(ngModel)]="creditCartNumber" name="creditCartNumber" (ngModelChange)="validateCreditCart()" required minlength="16" maxlength="16" placeholder="(16-digit number)">
+      <br>
+      <label *ngIf="warning3" class="warning">Invalid credit cart vnumber</label><br>
       <p>We'll never share your payment details with anyone else.</p>
       <button type="submit" [disabled]="form.invalid">Submit</button>
     </form>

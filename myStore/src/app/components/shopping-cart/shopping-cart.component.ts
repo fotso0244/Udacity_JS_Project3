@@ -8,15 +8,15 @@ import { ProductAdd } from 'src/app/models/ProductAdd';
 })
 export class ShoppingCartComponent implements OnInit {
   @Input() product;
-  @Output() UpdateQty: EventEmitter<[ProductAdd, string]> = new EventEmitter;
+  @Output() UpdateQty = new EventEmitter<[ProductAdd, string]>();
 
   constructor() { }
 
   ngOnInit(): void {
     
   }
+
   updateTotal(arr: [ProductAdd, string]) {
     this.UpdateQty.emit(arr)
   }
-
 }

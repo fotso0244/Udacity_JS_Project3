@@ -26,33 +26,34 @@ export class CartComponent implements OnInit {
         }
         this.total = total
   }
-  UpdateTotal(arr: [ProductAdd, string]) {
+  UpdateTotal(arr: [ProductAdd, string]): void {
     let prodList: ProductAdd[] = []
     let i = 0
     this.addProdCartService.prodAdded$.subscribe(
       message => { prodList = message
-        if (arr[1] !== "0") {
-          while (i < prodList.length) {
-            if (prodList[i]["name"] === arr[0]["name"]) {
-              prodList[i]["quantity"] = parseInt(arr[1])
-              break
-            }
-            else {
-              i += 1
-            }
-          }
-          this.prodListAdded = prodList
+        
+     }); 
+     if (arr[1] !== "0") {
+      while (i < prodList.length) {
+        if (prodList[i]["name"] === arr[0]["name"]) {
+          prodList[i]["quantity"] = parseInt(arr[1])
+          break
         }
         else {
-          this.prodListAdded = this.prodListAdded.filter(p => p.id !== arr[0].id)
-          alert('Removed from cart')
+          i += 1
         }
-     }); console.log(this.prodListAdded);
-     /*let j = 0, total = 0;
-        while (j < this.prodListAdded.length) {
-            total = total + (this.prodListAdded[j].price * this.prodListAdded[j].quantity)
-            j = j + 1
-        }*/
+      }
+      
+      this.prodListAdded = prodList
+      
+    }
+    else {
+      this.prodListAdded = this.prodListAdded.filter(p => p.id !== arr[0].id)
+       alert('Removed from cart');
+      
+    }
+     console.log(this.prodListAdded);
+
         this.total = this.addProdCartService.getTotal(this.prodListAdded)
         this.addProdCartService.sendProdsAdded(this.prodListAdded)
   }

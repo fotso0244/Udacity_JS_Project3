@@ -19,7 +19,13 @@ export class ProductItemComponent implements OnInit {
     this.hideProducts.emit()
   }
   addToCart(arr: [Product, string]) { 
-    this.AddProd.emit(arr)
+    if (parseInt(arr[1]) > 0) {
+      this.AddProd.emit(arr)
+    }
+    else {
+      alert('Please enter an integer strictly positive (> 0) quantity')
+    }
+    
   }
 
 }
