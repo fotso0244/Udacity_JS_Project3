@@ -4,6 +4,6 @@
     </a>
     <p fxLayoutAlign="center">{{ product.name }}</p>
     <p fxLayoutAlign="center">${{ product.price }}</p>
-    <input type="number" class="select-input" #qty />
+    <input type="number" class="select-input" min="1" (keyup)="onKey($event)" #qty />
     <button (click)="addToCart([product, qty.value])">Add to cart</button>
 </div>

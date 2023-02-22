@@ -23,13 +23,9 @@ export class ProductDetailMasterComponent {
       });
       if(this.addProductService.getProdAdded(arr) != null) { 
         if (!(this.addProductService.checkProdAdded(prodListAdded, newProd))) {
-          if (newProd.quantity > 0) {
+          
             prodListAdded.push(this.addProductService.getProdAdded(arr)); console.log(prodListAdded);
             alert('Added to cart');
-          }
-          else {
-            alert('Please enter an integer strictly positive (> 0) quantity')
-          }
           
         }
         else {

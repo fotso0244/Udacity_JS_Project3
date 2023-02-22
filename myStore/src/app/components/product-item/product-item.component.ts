@@ -18,14 +18,16 @@ export class ProductItemComponent implements OnInit {
   hide() { 
     this.hideProducts.emit()
   }
+  onKey(event: any) {
+    const pattern = /^[1-9]/;
+
+    if (!pattern.test(event.target.value)) {
+      event.target.value = event.target.value.replace(/^[a-zA-Z0-9]*$/, "");
+    }
+  }
   addToCart(arr: [Product, string]) { 
-    if (parseInt(arr[1]) > 0) {
-      this.AddProd.emit(arr)
-    }
-    else {
-      alert('Please enter an integer strictly positive (> 0) quantity')
-    }
     
+      this.AddProd.emit(arr)
   }
 
 }

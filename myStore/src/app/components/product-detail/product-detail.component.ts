@@ -39,6 +39,13 @@ export class ProductDetailComponent implements OnInit {
       this.product =  this.prodList[i]
       }) 
   }
+  onKey(event: any) {
+    const pattern = /^[1-9]/;
+
+    if (!pattern.test(event.target.value)) {
+      event.target.value = event.target.value.replace(/^[a-zA-Z0-9]*$/, "");
+    }
+  }
   addToCart(arr: [Product, string]): void {
     this.AddProd.emit(arr)
   }

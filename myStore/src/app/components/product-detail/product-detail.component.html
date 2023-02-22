@@ -4,7 +4,7 @@
         <p fxLayoutAlign="center">{{ product.name }}</p>
         <p fxLayoutAlign="center">${{ product.price }}</p>
         <p fxLayoutAlign="center">{{ product.description }}</p>
-        <input type="number" class="select-input" #qty/><br/>
+        <input type="number" class="select-input" min="1" (heyup)="onKey($event)" #qty/><br/>
         <button (click)="addToCart([product, qty.value])">Add to cart</button><br/>
         <br/>
         <a class="back-link" routerLink="/">Back to product list</a>
